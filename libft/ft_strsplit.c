@@ -55,7 +55,7 @@ char	**ft_get_words(char *s, char c, size_t words_count)
 	char	**words;
 	size_t	i;
 
-	words = (char **)ft_memalloc(sizeof(char *) * (words_count + 1));
+	words = (char **)ft_calloc(sizeof(char *) * (words_count + 1));
 	i = 0;
 	if (words)
 	{
