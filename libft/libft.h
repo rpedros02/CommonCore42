@@ -62,9 +62,9 @@ void	ft_putnbr(int n);
 
 void	ft_putnbr_fd(int fd, int n);
 
-void	ft_putstr(char *str);
-
 void	ft_putstr_fd(char *str, int fd);
+
+void	ft_putstr(char *str);
 
 char	**ft_split(char const *s, char c);
 
@@ -97,8 +97,6 @@ char	*ft_strncpy(char *dest, const char *src, size_t size);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 char	*ft_strrchr(const char *s, int c);
-
-char	**ft_strsplit(char const *s, char c);
 
 char	*ft_strstr(char *haystack, char *needle);
 

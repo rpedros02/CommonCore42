@@ -6,7 +6,7 @@
 /*   By: rucorrei <rucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 18:51:14 by rucorrei          #+#    #+#             */
-/*   Updated: 2024/05/23 11:31:03 by rucorrei         ###   ########.fr       */
+/*   Updated: 2024/05/26 14:05:48 by rucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	char	*str_ptr;
+	int		strlen;
 
+	strlen = ft_strlen(s);
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start > strlen)
 		len = 0;
-	else if (len > (ft_strlen(s) - start))
-		len = ft_strlen(s) - start;
+	else if (len > (strlen - start))
+		len = strlen - start;
 	str = ft_strnew(len);
 	if (!str)
 		return (NULL);

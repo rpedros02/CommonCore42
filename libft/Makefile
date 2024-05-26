@@ -38,7 +38,7 @@ SRCS = ft_memset.c		\
 		ft_substr.c		\
 		ft_strjoin.c 	\
 		ft_strtrim.c	\
-		ft_strsplit.c	\
+		ft_split.c	\
 		ft_itoa.c		\
 		ft_strmapi.c	\
 		ft_putchar_fd.c	\
@@ -74,7 +74,7 @@ $(OBJS_DIR)%.o : %.c libft.h
 	@gcc $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_PREFIXED)
+	@ar rv $(NAME) $(OBJECTS_PREFIXED)
 	@echo "Libft Compiling Done !"
 
 all: $(NAME)
@@ -88,5 +88,5 @@ fclean: clean
 re: fclean all
 
 bonus: $(OBJECTS_BONUS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@ar rv $(NAME) $(OBJECTS_BONUS_PREFIXED)
 	@echo "Libft Bonus Compiling Done !"
