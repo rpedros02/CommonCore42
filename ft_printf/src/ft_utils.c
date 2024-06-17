@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rucorrei <rucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 00:36:58 by rucorrei          #+#    #+#             */
-/*   Updated: 2024/05/28 00:37:44 by rucorrei         ###   ########.fr       */
+/*   Created: 2024/06/17 16:18:30 by rucorrei          #+#    #+#             */
+/*   Updated: 2024/06/17 16:20:03 by rucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libft.h>
 #include <ft_printf.h>
-#include "libft.h"
 
-int	ft_printstr(char *str)
+int ft_printchar(char c)
 {
-	int	i;
+	ft_putchar(c);
+	return (1);
+}
 
-	i = 0;
-	if (str == NULL)
-	{
-		ft_putstr("(null)");
-		return (6);
+int	ft_putstr(char *str)
+{
+	int	len;
+	
+	len = 0;
+	while (str[len] != '\0'){
+		ft_putchar(str[len]);
+		len++;
 	}
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	return (len);
 }

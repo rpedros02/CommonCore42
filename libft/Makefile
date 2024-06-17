@@ -6,7 +6,7 @@
 #    By: rucorrei <rucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/06 18:29:07 by rucorrei          #+#    #+#              #
-#    Updated: 2024/05/26 14:28:09 by rucorrei         ###   ########.fr        #
+#    Updated: 2024/06/17 16:11:44 by rucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,8 @@ all: $(NAME)
 
 clean:
 	rm -rf $(OBJS_DIR)
+	rm *.a
+	@echo "Libft Cleaning Done !"
 
 fclean: clean
 	rm -f $(NAME)
