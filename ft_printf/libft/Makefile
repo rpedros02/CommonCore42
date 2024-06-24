@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rucorrei <rucorrei@student.42.fr>          +#+  +:+       +#+         #
+#    By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/06 18:29:07 by rucorrei          #+#    #+#              #
-#    Updated: 2024/04/09 15:06:36 by rucorrei         ###   ########.fr        #
+#    Updated: 2024/06/24 20:49:02 by rucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,8 +71,8 @@ CC_FLAGS = -Wall -Wextra -Werror
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
-	@gcc $(CC_FLAGS) -c $< -o $@
-
+	@cc $(CC_FLAGS) -c $< -o $@
+	
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar r $(NAME) $(OBJECTS_PREFIXED)
 	@echo "Libft Compiling Done !"
