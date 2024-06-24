@@ -6,7 +6,7 @@
 #    By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/06 18:29:07 by rucorrei          #+#    #+#              #
-#    Updated: 2024/06/24 20:49:02 by rucorrei         ###   ########.fr        #
+#    Updated: 2024/06/24 23:38:33 by rucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,10 +68,10 @@ OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
 CC_FLAGS = -Wall -Wextra -Werror
 
-$(OBJS_DIR)%.o : %.c libft.h
+$(OBJS_DIR)%.o : %.c ../include/libft.h
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
-	@cc $(CC_FLAGS) -c $< -o $@
+	@cc $(CC_FLAGS) ../include -c $< -o $@
 	
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar r $(NAME) $(OBJECTS_PREFIXED)

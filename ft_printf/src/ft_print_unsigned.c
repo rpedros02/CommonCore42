@@ -1,56 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 20:45:18 by rucorrei          #+#    #+#             */
-/*   Updated: 2024/06/24 23:07:20 by rucorrei         ###   ########.fr       */
+/*   Created: 2024/06/24 22:55:11 by rucorrei          #+#    #+#             */
+/*   Updated: 2024/06/24 23:07:14 by rucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 #include <libft.h>
 
-int	ft_ptr_len(unsigned long ptr)
+/* Returns unsigned int length */
+int	ft_unsigned_len(unsigned int n)
 {
 	int	len;
 
 	len = 0;
-	while (ptr != 0)
+	while (n != 0)
 	{
 		len++;
-		ptr = ptr / 16;
+		n = n / 10;
 	}
 	return (len);
 }
 
-void	ft_put_ptr(unsigned long ptr)
+/* Prints an unsigned int, returns string size */
+int	ft_print_unsigned(unsigned int n)
 {
-	if (ptr == 0)
-		return ;
-	ft_put_ptr(ptr / 16);
-	ft_putchar("0123456789abcdef"[ptr % 16]);
-}
-
-/* Returns print length. */
-int	ft_print_ptr(unsigned long ptr)
-{
-	int	len;
+	int		len;
+	char	*str;
 
 	len = 0;
-	ft_putstr("0x");
-	len += 2;
-	if (ptr == 0)
-	{
-		ft_putchar('0');
-		len++;
-	}
-	else
-	{
-		ft_put_ptr(ptr);
-		len += ft_ptr_len(ptr);
-	}
+	str = ft_itoa(n);
+	ft_putstr(str);
+	len = ft_strlen(str);
+	free(str);
 	return (len);
 }
