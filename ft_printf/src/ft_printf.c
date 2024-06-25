@@ -6,12 +6,11 @@
 /*   By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:02:10 by rucorrei          #+#    #+#             */
-/*   Updated: 2024/06/24 23:15:31 by rucorrei         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:06:18 by rucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
-#include "libft.h"
+#include "ft_printf.h"
 
 /* Parses the output by receiving the va_list and the format(char) */
 int	ft_parse(va_list args, const char format)
@@ -49,14 +48,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			len += ft_parse(args, str[i]);
+			len += ft_parse(args, str[i + 1]);
 			i++;
 		}
 		else
-		{
-			ft_putchar(str[i]);
-			len++;
-		}
+			len += ft_printchar(str[i]);
 		i++;
 	}
 	va_end(args);

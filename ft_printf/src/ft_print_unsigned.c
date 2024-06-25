@@ -6,37 +6,59 @@
 /*   By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:55:11 by rucorrei          #+#    #+#             */
-/*   Updated: 2024/06/24 23:07:14 by rucorrei         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:53:53 by rucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
-#include <libft.h>
+#include "ft_printf.h"
+#include <stdlib.h>
 
-/* Returns unsigned int length */
-int	ft_unsigned_len(unsigned int n)
+int	ft_unsigned_len(unsigned int num)
 {
 	int	len;
 
 	len = 0;
-	while (n != 0)
+	while (num != 0)
 	{
 		len++;
-		n = n / 10;
+		num = num / 10;
 	}
 	return (len);
 }
 
-/* Prints an unsigned int, returns string size */
+char	*ft_uitoa(unsigned int n)
+{
+	char	*num;
+	int		len;
+
+	len = ft_unsigned_len(n);
+	num = (char *)malloc(sizeof(char) * (len + 1));
+	if (!num)
+		return (0);
+	num[len] = '\0';
+	while (n != 0)
+	{
+		num[len - 1] = n % 10 + 48;
+		n = n / 10;
+		len--;
+	}
+	return (num);
+}
+
+
 int	ft_print_unsigned(unsigned int n)
 {
-	int		len;
-	char	*str;
+	int		print_length;
+	char	*num;
 
-	len = 0;
-	str = ft_itoa(n);
-	ft_putstr(str);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
+	print_length = 0;
+	if (n == 0)
+		print_length += write(1, "0", 1);
+	else
+	{
+		num = ft_uitoa(n);
+		print_length += ft_printstr(num);
+		free(num);
+	}
+	return (print_length);
 }

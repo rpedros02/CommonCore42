@@ -6,12 +6,12 @@
 #    By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/06 18:29:07 by rucorrei          #+#    #+#              #
-#    Updated: 2024/06/24 23:38:33 by rucorrei         ###   ########.fr        #
+#    Updated: 2024/06/25 09:39:54 by rucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS = ft_memset.c		\
+SRCS = 	ft_memset.c		\
 		ft_bzero.c		\
 		ft_memcpy.c		\
 		ft_memmove.c 	\
@@ -46,7 +46,7 @@ SRCS = ft_memset.c		\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c
 
-SRCSB =	ft_lstnew.c		\
+SRCSB =	ft_lstnew.c			\
 		ft_lstadd_front.c	\
 		ft_lstsize.c		\
 		ft_lstlast.c		\
@@ -58,7 +58,7 @@ SRCSB =	ft_lstnew.c		\
 		$(SRCS)
 
 NAME = libft.a
-
+INCLUDE = -I../includes
 OBJS_DIR = objs/
 OBJS = $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
@@ -68,13 +68,13 @@ OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
 CC_FLAGS = -Wall -Wextra -Werror
 
-$(OBJS_DIR)%.o : %.c ../include/libft.h
+$(OBJS_DIR)%.o : %.c 
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
-	@cc $(CC_FLAGS) ../include -c $< -o $@
+	@cc $(CC_FLAGS) $(INCLUDE) -c $< -o $@
 	
 $(NAME): $(OBJECTS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_PREFIXED)
+	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
 	@echo "Libft Compiling Done !"
 
 all: $(NAME)
