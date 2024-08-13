@@ -6,11 +6,11 @@
 /*   By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:02:10 by rucorrei          #+#    #+#             */
-/*   Updated: 2024/06/25 11:06:18 by rucorrei         ###   ########.fr       */
+/*   Updated: 2024/08/13 16:36:20 by rucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 /* Parses the output by receiving the va_list and the format(char) */
 int	ft_parse(va_list args, const char format)

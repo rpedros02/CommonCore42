@@ -6,11 +6,11 @@
 /*   By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:18:30 by rucorrei          #+#    #+#             */
-/*   Updated: 2024/06/25 11:11:34 by rucorrei         ###   ########.fr       */
+/*   Updated: 2024/08/13 16:36:14 by rucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 /* Prints a char, returns 1 */
 int	ft_printchar(char c)

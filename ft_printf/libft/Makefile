@@ -6,10 +6,28 @@
 #    By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/06 18:29:07 by rucorrei          #+#    #+#              #
-#    Updated: 2024/06/25 09:39:54 by rucorrei         ###   ########.fr        #
+#    Updated: 2024/08/13 16:52:46 by rucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+ifneq (,$(findstring xterm,${TERM}))
+	RED          := $(shell tput -Txterm setaf 1)
+	GREEN        := $(shell tput -Txterm setaf 2)
+	YELLOW       := $(shell tput -Txterm setaf 3)
+	BLUE         := $(shell tput -Txterm setaf 6)
+	RESET := $(shell tput -Txterm sgr0)
+else
+	RED          := ""
+	GREEN        := ""
+	YELLOW       := ""
+	BLUE         := ""
+	RESET        := ""
+endif
+
+# set target color
+TARGET_COLOR := $(BLUE)
+
+POUND = \#
 
 SRCS = 	ft_memset.c		\
 		ft_bzero.c		\
@@ -70,12 +88,12 @@ CC_FLAGS = -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : %.c 
 	@mkdir -p $(OBJS_DIR)
-	@echo "Compiling: $<"
 	@cc $(CC_FLAGS) $(INCLUDE) -c $< -o $@
 	
 $(NAME): $(OBJECTS_PREFIXED)
+	@echo "$(YELLOW)$(POUND)Compiling Libft...$(RESET)"
 	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
-	@echo "Libft Compiling Done !"
+	@echo "$(GREEN)$(POUND)Libft Compiling Done !$(RESET)"
 
 all: $(NAME)
 
@@ -89,4 +107,5 @@ re: fclean all
 
 bonus: $(OBJECTS_BONUS_PREFIXED)
 	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
-	@echo "Libft Bonus Compiling Done !"
+	@echo "$(GREEN)$(POUND)Libft Bonus Compiling Done !$(RESET)"
+
