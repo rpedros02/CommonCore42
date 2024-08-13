@@ -6,7 +6,7 @@
 /*   By: rucorrei <rucorrei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:27:10 by rucorrei          #+#    #+#             */
-/*   Updated: 2024/08/13 18:36:41 by rucorrei         ###   ########.fr       */
+/*   Updated: 2024/08/13 19:30:02 by rucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	*get_line(t_list *list)
 	return (line);
 }
 
-int	main()
+/* int	main()
 {
 	int fd;
 	char *line;
@@ -110,4 +110,4 @@ int	main()
 		++lines;
 	}
 	printf("number of lines: %d\n", lines);
-}
+} */
