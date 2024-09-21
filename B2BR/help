@@ -1,0 +1,9 @@
+root - !Toor123
+
+user - rucorrei
+	!Dukas123
+
+LVM - !3ncrypt
+
+new_user - test_user
+	!TestUser123
